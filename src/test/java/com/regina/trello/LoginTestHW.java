@@ -7,45 +7,45 @@ import org.testng.annotations.Test;
 public class LoginTestHW extends TestBase {
 @BeforeMethod
 public void ensurePreconditions(){
-  if(app.isAvatarPresentOnHeader()){
-    app.logout();
+  if(app.getSession().isAvatarPresentOnHeader()){
+    app.getSession().logout();
   }
 }
 
   @Test
   public void testLogInWithAtlassianAcc() throws InterruptedException {
-    app.clickLoginLink();
-    app.fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "916233020105r");
-    app.pause(20000);
+    app.getSession().clickLoginLink();
+    app.getSession().fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "916233020105r");
+    app.getSession().pause(20000);
     Assert.assertTrue
-            (app.isAvatarPresentOnHeader());
+            (app.getSession().isAvatarPresentOnHeader());
   }
   @Test
   public void testLogInWithAtlassianAcc2() throws InterruptedException {
-    app.clickLoginLink();
-    app.fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "916233020105r");
-    app.pause(20000);
+    app.getSession().clickLoginLink();
+    app.getSession().fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "916233020105r");
+    app.getSession().pause(20000);
     Assert.assertTrue
-            (app.isAvatarPresentOnHeader());
+            (app.getSession().isAvatarPresentOnHeader());
   }
 
   @Test(enabled = false)
   public void negativeTestLogInWithAtlassianAcc() throws InterruptedException {
-    app.clickLoginLink();
-    app.fillLoginFormAtlassianAcc("roch", "");
-    app.pause(8000);
-    Assert.assertTrue(app.isErrorPresent());
+    app.getSession().clickLoginLink();
+    app.getSession().fillLoginFormAtlassianAcc("roch", "");
+    app.getSession().pause(8000);
+    Assert.assertTrue(app.getSession().isErrorPresent());
     Assert.assertTrue
-            (!app.isAvatarPresentOnHeader());
+            (!app.getSession().isAvatarPresentOnHeader());
   }
 
   @Test(enabled = false)
   public void testLogInOldAcc() throws InterruptedException {
-    app.clickLoginLink();
-    app.fillLoginFormOldAcc("reginafrolova75@gmail.com", "916233020105r");
-    app.confirmLogin();
+    app.getSession().clickLoginLink();
+    app.getSession().fillLoginFormOldAcc("reginafrolova75@gmail.com", "916233020105r");
+    app.getSession().confirmLogin();
     Assert.assertTrue
-            (app.isAvatarPresentOnHeader());
+            (app.getSession().isAvatarPresentOnHeader());
   }
 
 

@@ -1,5 +1,6 @@
 package com.regina.trello;
 
+import com.regina.trello.manager.ApplicationManager;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 

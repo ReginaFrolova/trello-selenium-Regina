@@ -8,30 +8,30 @@ import org.testng.annotations.Test;
 public class BoardCreationTests extends  TestBase{
   @BeforeMethod
   public void preconditions() throws InterruptedException {
-    if(!app.isAvatarPresentOnHeader()){
-      app.loginAtlassianAcc();
+    if(!app.getSession().isAvatarPresentOnHeader()){
+      app.getSession().loginAtlassianAcc();
     }
   }
   @Test
   public void testBoardCreationFromHeader() throws InterruptedException {
-int before =   app.getBoardsCount();
-    app.clickOnPlusButton();
-app.selectCreateBoardFromDropDown();
-app.fillBoardForm("qa22"+ System.currentTimeMillis());
-app.confirmBoardCreation();
-app.pause(15000);
-app.returnToHomePage();
-int after = app.getBoardsCount();
+int before =   app.getBoard().getBoardsCount();
+    app.getBoard().clickOnPlusButton();
+app.getBoard().selectCreateBoardFromDropDown();
+app.getBoard().fillBoardForm("qa22"+ System.currentTimeMillis());
+app.getBoard().confirmBoardCreation();
+app.getBoard().pause(15000);
+app.getHeader().returnToHomePage();
+int after = app.getBoard().getBoardsCount();
 
     Assert.assertEquals(after, before+1);
   }
 
   @AfterClass
   public void postActions() throws InterruptedException {
-    int boardsCount = app.getBoardsCount();
+    int boardsCount = app.getBoard().getBoardsCount();
     while (boardsCount>4){
-      app.deleteBoard();
-      boardsCount = app.getBoardsCount();
+      app.getBoard().deleteBoard();
+      boardsCount = app.getBoard().getBoardsCount();
     }
   }
 

@@ -1,5 +1,6 @@
 package com.regina.trello.manager;
 
+import com.regina.trello.model.TeamData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -21,9 +22,9 @@ public class TeamHelper extends HelperBase{
       click(By.cssSelector("[name='close']"));
     }
 
-    public void fillTeamCreationForm(String teamName, String teamDescr) {
-      type(By.cssSelector("[data-test-id='header-create-team-name-input']"), teamName);
-      type(By.cssSelector("[id$= description]"), teamDescr);
+    public void fillTeamCreationForm(TeamData teamData) {
+      type(By.cssSelector("[data-test-id='header-create-team-name-input']"), teamData.getTeamName());
+      type(By.cssSelector("[id$= description]"), teamData.getTeamDescr());
     }
 
     public void selectCreateTeamFromDropDown() {

@@ -13,7 +13,7 @@ public class SessionHelper extends HelperBase{
       type(By.id("user"), user);
       pause(5000);
       click(By.id("login"));
-      click(By.id("login-submit"));
+      //click(By.id("login-submit"));
       Thread.sleep(5000);
       type(By.cssSelector("input[id=password]"), pwd);
       click(By.id("login-submit"));

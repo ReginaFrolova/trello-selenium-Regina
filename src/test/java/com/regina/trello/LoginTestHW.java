@@ -15,7 +15,7 @@ public void ensurePreconditions(){
   @Test
   public void testLogInWithAtlassianAcc() throws InterruptedException {
     app.getSession().clickLoginLink();
-    app.getSession().fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "916233020105r");
+    app.getSession().fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "12345678r");
     app.getSession().pause(20000);
     Assert.assertTrue
             (app.getSession().isAvatarPresentOnHeader());
@@ -23,7 +23,7 @@ public void ensurePreconditions(){
   @Test
   public void testLogInWithAtlassianAcc2() throws InterruptedException {
     app.getSession().clickLoginLink();
-    app.getSession().fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "916233020105r");
+    app.getSession().fillLoginFormAtlassianAcc("reginafrolova75@gmail.com", "12345678r");
     app.getSession().pause(20000);
     Assert.assertTrue
             (app.getSession().isAvatarPresentOnHeader());
@@ -39,10 +39,10 @@ public void ensurePreconditions(){
             (!app.getSession().isAvatarPresentOnHeader());
   }
 
-  @Test(enabled = false)
+  @Test(enabled = true)
   public void testLogInOldAcc() throws InterruptedException {
     app.getSession().clickLoginLink();
-    app.getSession().fillLoginFormOldAcc("reginafrolova75@gmail.com", "916233020105r");
+    app.getSession().fillLoginFormOldAcc("reginafrolova75@gmail.com", "12345678r");
     app.getSession().confirmLogin();
     Assert.assertTrue
             (app.getSession().isAvatarPresentOnHeader());
